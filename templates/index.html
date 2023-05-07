@@ -8,26 +8,27 @@
     <link rel="stylesheet" href="{{ url_for('static', filename = 'bootstrap.min.css')}}">
 </head>
 <body>
-    <nav class="navbar navbar-light bg-light">
-        <span class="navbar-brand mb-0 h1">Character Counter App</span>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <span class="navbar-brand mb-0 h1">Character Counter App</span>   
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('test') }}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('about')}}">About</a>
+              </li>
+            </ul>
+          </div>
     </nav>
 
-    <button class="btn btn-primary">Testing</button>
+    {% block content %}
+        <h2>Hello from the main page!</h2>
+    {% endblock %}
 
-    <h1>Hello from the template</h1>
-    <table>
-        <tr>
-            <th>Manufactuer</th>
-            <th>Price</th>
-        </tr>
-        {% for key, value in cars.items() %}
-        <tr>
-            <td>{{key}}</td>
-            <td>{{value}}</td>
-        </tr>
-        {% endfor %}
-
-    </table>
+    {% block test %}
+        <h2>Hello from the main page!</h2>
+    {% endblock %}
     
 </body>
 </html>
