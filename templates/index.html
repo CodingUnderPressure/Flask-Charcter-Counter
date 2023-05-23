@@ -26,9 +26,28 @@
         <h2>Hello from the main page!</h2>
     {% endblock %}
 
-    {% block test %}
-        <h2>Hello from the main page!</h2>
-    {% endblock %}
+    <h1>Character Counter</h1>
+
+<div>
+    <h2 id="chardisplay"></h2>
+</div>
+
+<div style="padding: 50px; ">
+    <textarea onkeyup="charupdated()" onpaste="charpasted()" id="charcount" style="height: 400px; width: 100%"></textarea>
+</div>
+
+<script>
+    function charpasted() {
+        setTimeout(charupdated, 0);
+    }
+
+    function charupdated() {
+        var length = document.getElementById('charcount').value.length;
+        console.log(length);
+        document.getElementById('chardisplay').innerHTML = length;
+    }
+</script>
+
     
 </body>
 </html>
